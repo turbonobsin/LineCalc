@@ -1,0 +1,52 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://example.com/preset-schema",
+	"title": "Preset Schema",
+	"type": "object",
+	"properties": {
+		"root": {
+			"type": "string",
+			"description": "The root dir to scan folders in\nif omitted will default to program directory",
+			"default": "./"
+		},
+		"types": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"description": "Allowed types/extensions of files to scan\nEx: ['html','css','ts']"
+		},
+		"title": {
+			"type": "string",
+			"description": "Option title to be displayed above the output"
+		},
+		"folders": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string",
+						"description": "Label to display the folder as",
+						"default": "Default"
+					},
+					"root": {
+						"type": "string",
+						"description": "Optional root path to use instead of the global one defined\nThis lets you be able to include results from multiple projects together"
+					},
+					"path": {
+						"type": "string",
+						"description": "Optional sub path from 'root' to scan"
+					},
+					"ignore": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "List of paths/files to ignore\nThis can be sub file/folders like 'src/notes'"
+					}
+				}
+			}
+		}
+	}
+}

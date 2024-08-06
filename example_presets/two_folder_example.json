@@ -1,0 +1,31 @@
+{
+    "$schema": "../presetFormat.json",
+
+    "root":"C:\\Users\\user\\Documents\\GitHub\\coolgame-client",
+    "types":["html","css","ts"],
+    "title":"Two Folder Example",
+    "folders":[
+        {
+            "name":"Client",
+            "ignore":[
+                ".tmp",
+                ".vite",
+                "data",
+                "icons",
+                "internal",
+                "node_modules"
+            ]
+        },
+        {
+            "name":"Server",
+            "root":"C:\\Users\\user\\Documents\\GitHub\\coolgame-server",
+            "ignore":[
+                "packs",
+                "node_modules",
+                "out",
+                "test_images",
+                "testing"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "$schema": "../presetFormat.json",
+    
+    "title": "Simple Example",
+    "root":"C:\\Users\\user\\Documents\\GitHub\\mygame",
+    "types":["html","css","ts"],
+    "folders":[
+        {
+            "ignore":[
+                ".git",
+                ".vscode",
+                "assets",
+                "lib",
+                "out"
+            ]
+        }
+    ]
+}
