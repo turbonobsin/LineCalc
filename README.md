@@ -5,13 +5,15 @@
 - calculates lines of code as well as totals excluding empty lines
 
 ## How to use
+Create a folder called `presets` in the application directory and you can put presets in there. They will be `<name>.json` and follow the scheme below.
+<br><br>
 Presets can be ran with either of the following syntax:
 - `npm start <preset name>`
 - `node index.mjs <preset name>`
 
 ### Example
 - `npm start mygame`
-- *This will read the file named mygame.json that's in the same directory as the program*
+- *This will read the file named mygame.json that's in the `presets` folder*
 
 ## Notes
 - preset.json is the default file when using no arguments
