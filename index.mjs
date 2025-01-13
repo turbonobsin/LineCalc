@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import path from "path";
 
 export function util_error(...text){
     console.log("\x1b[31m%s\x1b[0m",...text);
@@ -34,6 +35,8 @@ async function calc(presetName="preset.json"){
 
     let root = getRoot(preset.root);
     console.log(`Root path: "${root}"\n`);
+
+    let rootFolder = path.basename(root);
     
     let amts = {};
     let lines1 = {};
@@ -47,17 +50,26 @@ async function calc(presetName="preset.json"){
     }
     
     /**
-     * @param {string} path 
+     * @param {string} loc 
      * @param {string} key 
      * @param {string[]} ignore 
      * @param {string[]} allowedTypes 
      * @returns 
      */
-    async function search(path,key,ignore,allowedTypes){
-        let items = await fs.readdir(path);
+    async function search(loc,key,ignore,allowedTypes){
+        let folderName = path.basename(loc);
+        if(preset.globalBlacklist){
+            if(preset.globalBlacklist.includes(folderName)) return;
+        }
+
+        if(loc != root) if(preset.globalWhitelist){
+            if(!preset.globalWhitelist.includes(folderName)) return;
+        }
+        
+        let items = await fs.readdir(loc);
         if(!items) return;
         for(const item of items){
-            let fullPath = path+item;
+            let fullPath = loc+item;
             if(ignore.includes(fullPath)) continue;
             if(!item.includes(".")){ // is folder
                 await search(fullPath+"/",key,ignore,allowedTypes);

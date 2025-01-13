@@ -42,6 +42,16 @@ interface Preset {
     title?: string;
 
     folders: PresetFolder[];
+
+    /**
+     * Optional list of folder names to exclude. Doesn't matter where they are, if a folder has this name it will be skipped.
+     */
+    globalBlacklist?: string[];
+
+    /**
+     * Optional list of folder names that will be the only ones scanned. Doesn't matter where they are, it won't scan any folder unless it has this name.
+     */
+    globalWhitelist?: string[];
 }
 
 interface PresetFolder {

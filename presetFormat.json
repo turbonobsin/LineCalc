@@ -47,6 +47,18 @@
 					}
 				}
 			}
+		},
+		"globalBlacklist": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"globalWhitelist": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
 		}
 	}
 }
